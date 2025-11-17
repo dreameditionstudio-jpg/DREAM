@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Princess Day</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9ce3, #ffe4ff, #ffc2f3);
+      overflow: hidden;
+    }
+
+    .title {
+      position: relative;
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 0 0 20px #ff75d6, 0 0 40px #ff35d0;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 15px #ff75d6; }
+      100% { text-shadow: 0 0 35px #ff35d0; }
+    }
+
+    /* Floating sparkles */
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px white;
+      animation: floatUp 4s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Princess silhouette */
+    .princess {
+      position: absolute;
+      bottom: 0;
+      width: 350px;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 15px rgba(255, 80, 200, 0.8));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="title">✨ Happy Princess Day ✨</h1>
+  <img class="princess" src="https://i.ibb.co/jbT3JxJ/princess-silhouette.png" alt="Princess" />
+
+  <script>
+    // Generate floating sparkles
+    for (let i = 0; i < 25; i++) {
+      let s = document.createElement('div');
+      s.classList.add('sparkle');
+      s.style.left = Math.random() * 100 + 'vw';
+      s.style.animationDelay = Math.random() * 4 + 's';
+      s.style.animationDuration = 3 + Math.random() * 3 + 's';
+      document.body.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
